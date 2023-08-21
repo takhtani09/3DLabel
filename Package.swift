@@ -20,7 +20,12 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "3D Label",
-            dependencies: []),
+            dependencies: [],
+            resources: [
+                .copy("Fonts"),
+            ]
+        ),
+
         .testTarget(
             name: "3D LabelTests",
             dependencies: ["3D Label"]),

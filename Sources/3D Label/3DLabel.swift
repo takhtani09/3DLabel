@@ -49,7 +49,15 @@ class ThreeDLabel: UILabel {
         didSet {
             if is3DFont {
                 // Set the font to "NexaRustSlab-BlackShadow01.otf" when is3DFont is true
-                setFontWith3D(fontName: "NexaRustSlab-BlackShadow01")
+                if let fontURL = Bundle.main.url(forResource: "NexaRustSlab-BlackShadow01", withExtension: "otf") {
+                    if let fontDataProvider = CGDataProvider(url: fontURL as CFURL) {
+                        if let font = CGFont(fontDataProvider) {
+                            setFontWith3D(fontName: "\(font)")
+                        }
+                    }
+                }
+                
+                
             } else {
                 // Use the original font if it's available, otherwise, use the default system font
                 if let originalFont = originalFont {
