@@ -7,8 +7,9 @@
 
 import UIKit
 
+
 @IBDesignable
-class ShadowedLabel: UILabel {
+class ThreeDLabel: UILabel {
 
     // MARK: - Inspectable Properties
 
