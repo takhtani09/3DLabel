@@ -10,7 +10,7 @@ import Foundation
 
 
 @IBDesignable
-class ThreeDLabel: UILabel {
+public class ThreeDLabel: UILabel {
 
     // MARK: - Inspectable Properties
 
@@ -33,11 +33,11 @@ class ThreeDLabel: UILabel {
     }
 
     // Store the original font set in the storyboard
-    private var originalFont: UIFont?
+    public var originalFont: UIFont?
 
     // MARK: - Shadow Update
 
-    private func updateShadow() {
+    public func updateShadow() {
         layer.shadowColor = customShadowColor.cgColor
         layer.shadowOffset = customShadowOffset
         layer.shadowRadius = customShadowRadius
@@ -70,7 +70,7 @@ class ThreeDLabel: UILabel {
         }
     }
 
-    private func setFontWith3D(fontName: String) {
+    public func setFontWith3D(fontName: String) {
         if let customFont = UIFont(name: fontName, size: font.pointSize) {
             font = customFont
         } else {
@@ -79,7 +79,7 @@ class ThreeDLabel: UILabel {
         }
     }
 
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
 
         // Store the original font set in the storyboard
