@@ -29,6 +29,7 @@ public class ThreeDLabel: UILabel {
             updateShadow()
         }
     }
+    
 
     // Store the original font set in the storyboard
     private var originalFont: UIFont?
@@ -40,6 +41,16 @@ public class ThreeDLabel: UILabel {
         layer.shadowOffset = customShadowOffset
         layer.shadowRadius = customShadowRadius
         layer.shadowOpacity = 1.0 // You can adjust this value as needed
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        updateShadow()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        updateShadow()
     }
 
     // MARK: - Custom 3D Fonts
