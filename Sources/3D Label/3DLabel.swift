@@ -8,23 +8,23 @@
 import UIKit
 
 @IBDesignable
-public class ThreeDLabel: UILabel {
+class ThreeDLabel: UILabel {
 
     // MARK: - Inspectable Properties
 
-    @IBInspectable public var customShadowColor: UIColor = UIColor.clear {
+    @IBInspectable var customShadowColor: UIColor = UIColor.clear {
         didSet {
             updateShadow()
         }
     }
 
-    @IBInspectable public var customShadowOffset: CGSize = CGSize(width: 0, height: 0) {
+    @IBInspectable var customShadowOffset: CGSize = CGSize(width: 0, height: 0) {
         didSet {
             updateShadow()
         }
     }
 
-    @IBInspectable public var customShadowRadius: CGFloat = 0 {
+    @IBInspectable var customShadowRadius: CGFloat = 0 {
         didSet {
             updateShadow()
         }
@@ -32,11 +32,11 @@ public class ThreeDLabel: UILabel {
     
 
     // Store the original font set in the storyboard
-    private var originalFont: UIFont?
+    var originalFont: UIFont?
 
     // MARK: - Shadow Update
 
-    private func updateShadow() {
+    func updateShadow() {
         layer.shadowColor = customShadowColor.cgColor
         layer.shadowOffset = customShadowOffset
         layer.shadowRadius = customShadowRadius
@@ -55,7 +55,7 @@ public class ThreeDLabel: UILabel {
 
     // MARK: - Custom 3D Fonts
 
-    @IBInspectable public var is3DFont: Bool = false {
+    @IBInspectable var is3DFont: Bool = false {
         didSet {
             if is3DFont {
                 // Set the font to "NexaRustSlab-BlackShadow01.otf" when is3DFont is true
@@ -76,11 +76,11 @@ public class ThreeDLabel: UILabel {
         }
     }
 
-    private func setFontWith3D(font: UIFont) {
+    func setFontWith3D(font: UIFont) {
         self.font = font
     }
 
-    public override func awakeFromNib() {
+    override func awakeFromNib() {
         super.awakeFromNib()
 
         // Store the original font set in the storyboard
